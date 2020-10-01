@@ -19,6 +19,7 @@ def main():
         data_augmentation(training_path, validation_path)
 
     model.train(training_path=training_path, validation_path=validation_path, epochs=1)
+    model = DeStrap()
 
 if __name__ == "__main__":
     main()
