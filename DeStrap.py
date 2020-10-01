@@ -126,6 +126,26 @@ class DeStrap():
         optimizer = RMSprop(self.lr, clipvalue=1.01)
         self.model.compile(loss='categorical_crossentropy', optimizer=optimizer)
         self.model.summary()
+        
+        
+        
+         img_shape = (256,256,3,)
+        image_model = Sequential()
+        
+        image_model.add(Conv2D(16, kernel_size =  (3, 3), padding='valid', activation='relu', input_shape=(256, 256, 3,)))
+        image_model.add(Conv2D(16, kernel_size =(3,3), activation='relu', padding='same', strides=2))
+        image_model.add(Conv2D(32, kernel_size =(3,3), activation='relu', padding='same'))
+        # image_model.add(Conv2D(32, kernel_size =(3,3), activation='relu', padding='same'))
+        image_model.add(Conv2D(32, kernel_size =(3,3), activation='relu', padding='same', strides=2))
+        image_model.add(Conv2D(64, kernel_size =(3,3), activation='relu', padding='same'))
+        image_model.add(Conv2D(64, kernel_size =(3,3), activation='relu', padding='same', strides=2))
+        image_model.add(Conv2D(128, kernel_size =(3,3), activation='relu', padding='same'))
+        image_model.add(Flatten())
+        image_model.add(Dense(2048, activation='relu'))
+        image_model.add(Dense(1024, activation='relu'))
+        image_model.add(Dropout(0.35))
+        image_model.summary()
+        
 
     def train(self, training_path, validation_path, epochs):
 
