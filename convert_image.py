@@ -13,3 +13,5 @@ if __name__ == "__main__":
 
     runner = Runner()
     runner.convert_image(input_path, original_gui, print_generated_output, get_accuracy, get_html)
+print_generated_output = True
+    original_gui = "./input.gui"
