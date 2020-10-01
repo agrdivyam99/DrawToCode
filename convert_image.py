@@ -7,7 +7,7 @@ if __name__ == "__main__":
     
     print_generated_output = True
     original_gui = "./input.gui"
-    
+    get_Accuracy = False
     get_accuracy = True
     get_html = True
 
